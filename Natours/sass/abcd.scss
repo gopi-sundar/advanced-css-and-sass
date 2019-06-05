@@ -1,0 +1,40 @@
+
+@mixin style-link-text($color) {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $color;
+  }
+  
+  @include style-link-text($text-color-dark);
+  or
+  @include style-link-text($text-color-light);
+
+  @function divide($a, $b) {
+      @return $a/$b;
+  }
+
+  nav {
+      margin: divide(60,2) * 1px;
+  }
+
+  %btn-placeholder {
+    padding:10px;
+    display:inline-block;
+    text-align: center;
+    border-radius: 100px;
+    width: $button-width;    
+  }
+
+  .btn-main {
+      &:link {
+          @extend %btn-placeholder;
+          background-color: $color-secondary;
+      }
+  }
+
+  .btn-hot {
+    &:link {
+        @extend %btn-placeholder;
+        background-color: $color-tertiary;
+    }
+  }
